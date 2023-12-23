@@ -1,9 +1,22 @@
-// TopHalfModal.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Typography, Button, Box } from '@mui/material';
 import DoughnutChart from './DoughnutChart';
 
 const TopHalfModal = () => {
+  const [buttonStates, setButtonStates] = useState({
+    hydrogen: true,
+    CO2: true,
+    value16_2: true,
+    mixedFeed: true,
+  });
+
+  const handleButtonClick = (buttonKey) => {
+    setButtonStates((prevButtonStates) => ({
+      ...prevButtonStates,
+      [buttonKey]: !prevButtonStates[buttonKey],
+    }));
+  };
+
   const leftHalfStyle = {
     flex: 0.5,
     padding: '15px',
@@ -52,19 +65,47 @@ const TopHalfModal = () => {
           Inlet:
         </Typography>
         <div style={buttonContainerStyle}>
-          <Button variant="contained" className="align-left" style={{ ...buttonStyle, ...buttonWithChartStyle }}>
+          <Button
+            variant="contained"
+            className="align-left"
+            style={{
+              ...buttonStyle,
+              ...buttonWithChartStyle,
+              border: `2px solid ${buttonStates.hydrogen ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0.2)'}`,
+              backgroundColor: buttonStates.hydrogen ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0)' ,
+            }}
+            onClick={() => handleButtonClick('hydrogen')}
+          >
             <Box sx={{ width: '100%', textAlign: 'left' }}>Hydrogen</Box>
             <Box sx={doughnutChartContainerStyle}>
               <DoughnutChart />
             </Box>
           </Button>
-          <Button variant="contained" style={{ ...buttonStyle, ...buttonWithChartStyle }}>
+          <Button
+            variant="contained"
+            style={{
+              ...buttonStyle,
+              ...buttonWithChartStyle,
+              border: `2px solid ${buttonStates.CO2 ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0.2)'}`,
+              backgroundColor: buttonStates.CO2 ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0)' ,
+            }}
+            onClick={() => handleButtonClick('CO2')}
+          >
             <Box sx={{ width: '100%', textAlign: 'left' }}>CO2</Box>
             <Box sx={doughnutChartContainerStyle}>
               <DoughnutChart />
             </Box>
           </Button>
-          <Button variant="contained" style={{ ...buttonStyle, ...buttonWithChartStyle }}>
+          <Button
+            variant="contained"
+            style={{
+              ...buttonStyle,
+              ...buttonWithChartStyle,
+              border: `2px solid ${buttonStates.value16_2 ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0.2)'}`,
+              backgroundColor: buttonStates.value16_2 ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0)' ,
+            }}
+            onClick={() => handleButtonClick('value16_2')}
+          >
             <Box sx={{ width: '100%', textAlign: 'left' }}>16.2</Box>
             <Box sx={doughnutChartContainerStyle}>
               <DoughnutChart />
@@ -77,7 +118,17 @@ const TopHalfModal = () => {
           Outlet:
         </Typography>
         <div style={buttonContainerStyle}>
-          <Button variant="contained" style={{ ...buttonStyle, ...buttonWithChartStyle }}>
+          <Button
+            variant="contained"
+            style={{
+              ...buttonStyle,
+              ...buttonWithChartStyle,
+              border: `2px solid ${buttonStates.mixedFeed ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0.2)'}`,
+              backgroundColor: buttonStates.mixedFeed ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0)' ,
+              
+            }}
+            onClick={() => handleButtonClick('mixedFeed')}
+          >
             <Box sx={{ width: '100%', textAlign: 'left' }}>Mixed Feed</Box>
             <Box sx={doughnutChartContainerStyle}>
               <DoughnutChart />
