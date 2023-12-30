@@ -6,6 +6,11 @@ import Topbar from './overlay_components/TopBar';
 import Home from './pages/Home';
 import Overview from './pages/Overview';
 
+import Oxycomb from './pages/Oxycomb';
+import RWProc from './pages/RWProc';
+import MethSynth from './pages/MethSynth';
+import Electrolysis from './pages/Electrolysis';
+
 function App () {
   return (
     <Router>
@@ -14,6 +19,10 @@ function App () {
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/overview" element={<Overview/>} />
+          <Route path="/rwproc" element={<RWProc/>} />
+          <Route path="/electrolyzer" element={<Electrolysis/>} />
+          <Route path="/methanolsynthesis" element={<MethSynth/>} />
+          <Route path="/oxycombustionproc" element={<Oxycomb/>} />
         </Routes>
       </div>
     </Router>

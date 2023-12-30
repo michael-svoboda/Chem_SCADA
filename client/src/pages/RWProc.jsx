@@ -3,7 +3,7 @@ import './Overview.css'; // Assuming you have a CSS file for styling
 import CyclingButton from '../components/CyclingButton';
 import { Button, Modal, Backdrop, Fade } from '@mui/material';
 
-const Overview = () => {
+const RWProc = () => {
   const [hoveredButtonID, setHoveredButtonID] = useState(null); // Track which button is hovered
 
   const handleButtonMouseEnter = (buttonID) => {
@@ -26,7 +26,7 @@ const Overview = () => {
 
   return (
     <div style={{ marginTop: '9%', height: '80vh', alignItems: 'center', justifyContent: 'center' }}>
-      <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/page1.jpg'} alt="Page 1" />
+      <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/river-water.jpg'} alt="Page 1" />
 
       <div
         className="button-container1"
@@ -65,4 +65,4 @@ const Overview = () => {
   );
 };
 
-export default Overview;
+export default RWProc;

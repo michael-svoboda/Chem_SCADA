@@ -23,7 +23,7 @@ const Topbar = () => {
     { text: 'Overview', route: '/overview' },
     { text: 'RW. Proc', route: '/rwproc' },
     { text: 'Electrolyzer', route: '/electrolyzer' },
-    { text: 'Methane Synthesis', route: '/methanesynthesis' },
+    { text: 'Methanol Synthesis', route: '/methanolsynthesis' },
     { text: 'Oxycombustion Proc', route: '/oxycombustionproc' },
     { text: 'Controls', route: '/controls' },
   ];
