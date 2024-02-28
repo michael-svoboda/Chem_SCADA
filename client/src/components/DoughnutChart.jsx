@@ -55,3 +55,4 @@ const DoughnutChart = () => {
 };
 
 export default DoughnutChart;
+

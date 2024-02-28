@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Overview.css'; // Assuming you have a CSS file for styling
 import CyclingButton from '../components/CyclingButton';
+import { Link } from 'react-router-dom';
 import { Button, Modal, Backdrop, Fade } from '@mui/material';
 
 const Electrolysis = () => {
@@ -29,38 +30,85 @@ const Electrolysis = () => {
       <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/electrolyzer.jpg'} alt="Page 1" />
 
       <div
-        className="button-container1"
+        className="button-container7"
         style={{
+          padding: '1px',
           position: 'absolute',
-          top: '30%',
-          left: '70%',
-          width: '100px',
-          height: '50px',
-          border: '2px solid black',
-          //backgroundColor: hoveredButtonID === 'button1' ? 'yellow' : 'transparent', // Change the background color based on hover
+          top: '32.0%',
+          left: '87.8%',
+          width: '7.5%',
+          height: '7%',
+          border: '2px solid blue',
+          //backgroundColor: hoveredButtonID === 'button2' ? 'yellow' : 'transparent', // Change the background color based on hover
         }}
-        onMouseEnter={() => handleButtonMouseEnter('button1')}
+        onMouseEnter={() => handleButtonMouseEnter('ToB01')}
         onMouseLeave={handleButtonMouseLeave}
       >
-        <CyclingButton isHovered={hoveredButtonID === 'button1'} onClick={handleOpen} setIsHovered={() => {}} />
+        <Link to="/oxycombustionproc" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <CyclingButton isHovered={hoveredButtonID === 'ToB01'} onClick={handleOpen} setIsHovered={() => {}} />
+        </Link>
       </div>
 
       <div
-        className="button-container2"
+        className="button-container8"
         style={{
+          padding: '1px',
           position: 'absolute',
-          top: '90%',
-          left: '10%',
-          width: '100px',
-          height: '50px',
-          border: '2px solid black',
+          top: '44.5%',
+          left: '87.8%',
+          width: '7.5%',
+          height: '7%',
+          border: '2px solid blue',
           //backgroundColor: hoveredButtonID === 'button2' ? 'yellow' : 'transparent', // Change the background color based on hover
         }}
-        onMouseEnter={() => handleButtonMouseEnter('button2')}
+        onMouseEnter={() => handleButtonMouseEnter('ToK04')}
         onMouseLeave={handleButtonMouseLeave}
       >
-        <CyclingButton isHovered={hoveredButtonID === 'button2'} onClick={handleOpen} setIsHovered={() => {}} />
+        <Link to="/methanolsynthesis" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <CyclingButton isHovered={hoveredButtonID === 'ToK04'} onClick={handleOpen} setIsHovered={() => {}} />
+        </Link>
       </div>
+
+      <div
+        className="button-container9"
+        style={{
+          padding: '1px',
+          position: 'absolute',
+          top: '104.5%',
+          left: '2.8%',
+          width: '7.5%',
+          height: '7%',
+          border: '2px solid blue',
+          //backgroundColor: hoveredButtonID === 'button2' ? 'yellow' : 'transparent', // Change the background color based on hover
+        }}
+        onMouseEnter={() => handleButtonMouseEnter('FromP09')}
+        onMouseLeave={handleButtonMouseLeave}
+      >
+        <Link to="/rwproc" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <CyclingButton isHovered={hoveredButtonID === 'FromP09'} onClick={handleOpen} setIsHovered={() => {}} />
+        </Link>
+      </div>
+
+      <div
+        className="button-container10"
+        style={{
+          padding: '1px',
+          position: 'absolute',
+          top: '114.5%',
+          left: '3.8%',
+          width: '7.5%',
+          height: '7%',
+          border: '2px solid blue',
+          //backgroundColor: hoveredButtonID === 'button2' ? 'yellow' : 'transparent', // Change the background color based on hover
+        }}
+        onMouseEnter={() => handleButtonMouseEnter('ToTK04')}
+        onMouseLeave={handleButtonMouseLeave}
+      >
+        <Link to="/rwproc" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <CyclingButton isHovered={hoveredButtonID === 'ToTK04'} onClick={handleOpen} setIsHovered={() => {}} />
+        </Link>
+      </div>
+
     </div>
   );
 };

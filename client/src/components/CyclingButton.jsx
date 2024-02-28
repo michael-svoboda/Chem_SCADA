@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Backdrop, Box, Fade, Modal, Typography } from '@mui/material';
 import EquipmentModal from './EquipmentModal';
@@ -61,3 +60,7 @@ const CyclingButton = ({ isHovered, setIsHovered }) => {
 };
 
 export default CyclingButton;
+
+
+
+

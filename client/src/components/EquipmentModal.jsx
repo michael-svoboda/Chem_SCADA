@@ -1,11 +1,23 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Backdrop, Box, Fade, Modal, Typography, Card, Button } from '@mui/material';
 import LineChart from './LineChart'; // Import the LineChart component
 import DoughnutChart from './DoughnutChart';
 import TopHalfModal from './TopHalfModal';
 import BottomHalfModal from './BottomHalfModal';
 
-const EquipmentModal = ({ isModalOpen, handleCloseModal }) => {
+
+const EquipmentModal = ({  isModalOpen, handleCloseModal}) => {
+
+  
+  const [streamName, setStreamName] = useState('40% Product Split to Mixer');
+  const [property, setProperty] = useState([]);
+  const [times, setTimes] = useState([]);
+  const [range, setRange] = useState(1);
+  const [stream, setStream] = useState(1);
+  const [stream2, setStream2] = useState();
+  
+
   const modalStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -93,11 +105,11 @@ const EquipmentModal = ({ isModalOpen, handleCloseModal }) => {
           <Box style={topHalfStyle}>
             <TopHalfModal />
             <div style={topHalfStyle}>
-              <LineChart />
+              <LineChart property={property} times={times} range={range} stream = {stream}/>
             </div>
           </Box>
           <Box style={bottomHalfStyle}>
-          <BottomHalfModal />
+          <BottomHalfModal setProperty={setProperty} setTimes={setTimes} setRange={setRange} range={range} setStream={setStream} stream={stream} setStream2={setStream2} stream2={stream2}/>
           </Box>
         </Box>
       </Fade>
@@ -106,3 +118,5 @@ const EquipmentModal = ({ isModalOpen, handleCloseModal }) => {
 };
 
 export default EquipmentModal;
+
+
