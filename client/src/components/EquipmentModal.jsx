@@ -15,7 +15,7 @@ const EquipmentModal = ({  isModalOpen, handleCloseModal}) => {
   const [times, setTimes] = useState([]);
   const [range, setRange] = useState(1);
   const [stream, setStream] = useState(1);
-  const [stream2, setStream2] = useState();
+  const [stream2, setStream2] = useState(2);
   
 
   const modalStyle = {
@@ -105,7 +105,7 @@ const EquipmentModal = ({  isModalOpen, handleCloseModal}) => {
           <Box style={topHalfStyle}>
             <TopHalfModal />
             <div style={topHalfStyle}>
-              <LineChart property={property} times={times} range={range} stream = {stream}/>
+              <LineChart property={property} times={times} range={range} stream = {stream} stream2={stream2}/>
             </div>
           </Box>
           <Box style={bottomHalfStyle}>

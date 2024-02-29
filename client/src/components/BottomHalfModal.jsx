@@ -18,7 +18,7 @@ import {
 
 
 
-const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, range, setStream, stream, }) => {
+const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, range, setStream, stream, stream2, setStream2}) => {
 
   const [selectedProperty, setSelectedProperty] = useState('');
 
@@ -27,6 +27,8 @@ const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, rang
       mode: 'dark',
     },
   });
+
+  
 
   const buttonStyle = {
     border: '2px solid rgba(255, 255, 255, 0.8)',
@@ -54,8 +56,8 @@ const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, rang
   };
 
   const handleStream2Change = (event) => {
-    const streamNumber = parseInt(event.target.value)
-    setStream(streamNumber);
+    const streamNumber2 = parseInt(event.target.value)
+    setStream2(streamNumber2);
    
   };
 
@@ -113,7 +115,7 @@ const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, rang
         </Typography>
 
         {/* Dropdown for Property */}
-        <FormControl style={{ flex: '1', marginRight: '10px' }}>
+        <FormControl style={{ flex: '0 0 400px', marginRight: '10px' }}>
           <InputLabel id="property-dropdown-label">Select Property</InputLabel>
           <Select 
 
@@ -149,26 +151,25 @@ const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, rang
         </Button>
 
         {/* Dropdown for Unit Type */}
-        <FormControl style={{ flex: '1', marginRight: '10px' }}>
+        <FormControl style={{ flex: '0 0 200px', marginRight: '10px' }}>
           < TextField labelId="time-range-dropdown-label" placeholder="Time Range (Hours)" onChange={handleRangeChange} value={range} type='number' label='Set Time Range (Hours)'>
           </TextField>
         </FormControl>
 
         {/* Dropdown for Streams */}
-        <FormControl style={{ flex: '1', marginRight: '10px' }}>
+        <FormControl style={{ flex: '0 0 200px', marginRight: '10px' }}>
           < TextField labelId="stream-dropdown-label" placeholder="Stream Number" onChange={handleStreamChange} value={stream} type='number' label='Stream Number'>
           </TextField>
         </FormControl>
 
         {/* Dropdown for Streams */}
-        <FormControl style={{ flex: '1', marginRight: '10px' }}>
-          < TextField labelId="stream-dropdown-label2" placeholder="Stream Number2" onChange={handleStream2Change} value={stream} type='number' label='Stream Number3'>
+        <FormControl style={{ flex: '0 0 200px', marginRight: '10px' }}>
+          < TextField labelId="stream-dropdown-label2" placeholder="Stream Number2" onChange={handleStream2Change} value={stream2} type='number' label='Stream Number2'>
           </TextField>
         </FormControl>
 
-
     </ThemeProvider>
-    </Card>
+    </Card >
     
   );
 };

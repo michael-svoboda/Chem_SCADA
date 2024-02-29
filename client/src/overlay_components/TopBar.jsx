@@ -48,7 +48,10 @@ const Topbar = () => {
           <span style={{ cursor: 'pointer', transition: 'font-size 0.2s', fontSize: hoveredIndex === index + 1 ? '1.5rem' : '1rem', fontWeight: hoveredIndex === index + 1 ? 'bold' : 'normal' }}>{link.text}</span>
         </Link>
       ))}
+
+      
     </div>
+    
   );
 };
 

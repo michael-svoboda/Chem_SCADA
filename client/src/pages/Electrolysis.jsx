@@ -108,6 +108,32 @@ const Electrolysis = () => {
         <CyclingButton isHovered={hoveredButtonID === 'ToTK04'} onClick={handleOpen} setIsHovered={() => {}} />
         </Link>
       </div>
+      <div
+  className="button-container7"
+  style={{
+    padding: '1px',
+    position: 'absolute',
+    top: '90.5%',
+    left: '85.8%',
+    width: '10.5%',
+    height: '7.5%',
+    border: '2px solid red',
+  }}
+  onMouseEnter={() => handleButtonMouseEnter('oxycomb')}
+  onMouseLeave={handleButtonMouseLeave}
+>
+  <CyclingButton isHovered={hoveredButtonID === 'oxycomb'} onClick={handleOpen} setIsHovered={() => {}} />
+  <span style={{ 
+    position: 'absolute', 
+    top: '50%', 
+    left: '50%', 
+    transform: 'translate(-50%, -50%)', 
+    fontSize: '13px',
+    color: 'red', // Making the font color red
+  }}>Live Data</span>
+</div>
+
+
 
     </div>
   );

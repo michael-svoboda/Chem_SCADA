@@ -2,6 +2,7 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import overlays from './overlay_components/overlays';
 import Topbar from './overlay_components/TopBar';
 import Home from './pages/Home';
 import Overview from './pages/Overview';
@@ -18,6 +19,7 @@ function App () {
     <Router>
       <div>
         <Topbar />
+        {/* <overlays /> */}
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/overview" element={<Overview/>} />

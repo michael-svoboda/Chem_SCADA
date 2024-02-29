@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const LineChart = ({ property, times, range, stream }) => {
+const LineChart = ({ property, times, range, stream, stream2 }) => {
   const [counter, setCounter] = useState(0);
   const chartRef = useRef(null);
   const myChart = useRef(null);
@@ -55,6 +55,15 @@ const LineChart = ({ property, times, range, stream }) => {
               pointRadius: 0,
               pointHoverRadius: 6,
             },
+            {
+                            label: 'stream:' + stream2.toString(),
+                            data: [],
+                            borderColor: 'rgb(255, 99, 132, 1)',
+                            borderWidth: 1.5,
+                            stepped: true,
+                            pointRadius: 0, // Adjust the size of the circles
+                            pointHoverRadius: 6, // Adjust the size of the circles on hover
+                          },
           ],
         },
         options: {

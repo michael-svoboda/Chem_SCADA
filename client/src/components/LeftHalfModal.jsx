@@ -1,4 +1,4 @@
-// // LeftHalfModal.jsx
+// LeftHalfModal.jsx
 // import React from 'react';
 // import { Card, Typography, Button, Box } from '@mui/material';
 // import DoughnutChart from './DoughnutChart';
