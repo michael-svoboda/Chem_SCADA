@@ -19,7 +19,11 @@ const Home = () => {
         fontStyle: 'italic', // Add italic formatting
         textAlign: 'center' // Center the text
         }}>
-        Welcome to the home page!
+        "At EcoMeoh, our mission is to <br></br>
+        prosper, With eco-conscious <br></br>
+        practices, we foster. Balancing  <br></br>
+        profit with environmental care,<br></br>
+We aim for success that's truly rare."
         </p>
 
         <p style={{
@@ -36,11 +40,19 @@ const Home = () => {
 
         <img style={{ width: '15%', height: '30%',position: 'absolute', top: '0%', left: '10%' }} src={process.env.PUBLIC_URL + '/EcoMeOH_Logo.jpg'} alt="Page 1" />
         
-        <img style={{ width: '25%', height: 'auto',position: 'absolute', top: '15%', left: '58%',   }} src={process.env.PUBLIC_URL + '/hatchlogo.png'} alt="Page 1" />
+        <img style={{ width: '25%', height: 'auto',position: 'absolute', top: '30%', left: '60%',   }} src={process.env.PUBLIC_URL + '/hatchlogo.png'} alt="Page 1" />
 
         <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/27762966_web1_171112-LDN-M-Nechako-River.jpg'} alt="Page 1" />
 
         <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/burning.gif'} alt="Page 1" />
+
+        <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/deforestation.jpeg'} alt="Page 1" />
+
+        <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/money.gif'} alt="Page 1" />
+
+        <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/real.gif'} alt="Page 1" />
+
+        <img style={{ width: '100%', height: 'auto' }} src={process.env.PUBLIC_URL + '/tushy.gif'} alt="Page 1" />
        
 
         

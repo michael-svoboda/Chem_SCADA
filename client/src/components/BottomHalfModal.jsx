@@ -18,7 +18,7 @@ import {
 
 
 
-const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, range, setStream, stream, stream2, setStream2}) => {
+const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, range, setStream, stream, stream2, setStream2, property2, setProperty2}) => {
 
   const [selectedProperty, setSelectedProperty] = useState('');
 
@@ -45,19 +45,21 @@ const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, rang
   const handleRangeChange = (event) => {
     const num = parseFloat(event.target.value)
     setRange(num);
-   
-    
+    setProperty([]);
+    setProperty2([]);
+    fetchData(selectedProperty);
   };
 
   const handleStreamChange = (event) => {
     const streamNumber = parseInt(event.target.value)
     setStream(streamNumber);
-   
+    fetchData(selectedProperty);
   };
 
   const handleStream2Change = (event) => {
     const streamNumber2 = parseInt(event.target.value)
     setStream2(streamNumber2);
+    fetchData(selectedProperty);
    
   };
 
@@ -68,20 +70,31 @@ const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, rang
     
   };
 
-
   const fetchData = async (value) => {
     
     try {
-      const response = await axios.get(`http://localhost:3001/api/stream-data?stream=${stream}`); // Make API call to backend
-      console.log('Fetched data:', response.data); // Print response data to console
+      const response1 = await axios.get(`http://localhost:3001/api/stream-data?stream=${stream}`); // Make API call to backend
+      console.log('Fetched data:', response1.data); // Print response data to console
 
-      const extractedProperty = response.data.map(entry => entry[value]);
+      const extractedProperty1 = response1.data.map(entry => entry[value]);
+      const extractedTimes = response1.data.map(entry => entry['Time']);
+      setProperty(extractedProperty1);
 
-      const extractedTimes = response.data.map(entry => entry['Time']);
 
-      console.log('Extracted Property:', extractedProperty);
-      setProperty(extractedProperty);
-      console.log('State variable Property:', property);
+      const response2 = await axios.get(`http://localhost:3001/api/stream-data?stream=${stream2}`); // Make API call to backend
+      console.log('Fetched data:', response2.data); // Print response data to console
+
+      const extractedProperty2 = response2.data.map(entry => entry[value]);
+      setProperty2(extractedProperty2);
+
+
+      // console.log('Extracted Property:', extractedProperty);
+      // if (propNum == 1) {
+      //   setProperty(extractedProperty);
+      // } else {
+      //   setProperty2(extractedProperty);
+      // }
+      // console.log('State variable Property:', property);
 
       console.log('Extracted Times:', extractedTimes);
       setTimes(extractedTimes);
@@ -126,11 +139,11 @@ const BottomHalfModal = ({property, setProperty, setTimes, times, setRange, rang
           
           >
 
-            <MenuItem value="Mass Flow [kg/h]">Mass Flowrate</MenuItem>
-            <MenuItem value="Temperature [C]">Temperature</MenuItem>
-            <MenuItem value="Pressure [kPaa]">Pressure</MenuItem>
-            <MenuItem value="Molar Flow [kmol/h]">Molar Flowrate</MenuItem>
-            <MenuItem value="Vapor Volume Fraction">Vapor Volume Fraction</MenuItem>
+            <MenuItem value="Mass Flow [kg/h]">Mass Flowrate in kg/h</MenuItem>
+            <MenuItem value="Temperature [C]">Temperature in deg C</MenuItem>
+            <MenuItem value="Pressure [kPaa]">Pressure in kPaa</MenuItem>
+            <MenuItem value="Molar Flow [kmol/h]">Molar Flowrate in mol/hr</MenuItem>
+            <MenuItem value="Vapor Volume Fraction">Vapor Volume Fraction in %</MenuItem>
 
           </Select>
         </FormControl>

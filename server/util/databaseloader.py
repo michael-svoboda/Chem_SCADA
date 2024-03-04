@@ -32,7 +32,7 @@ def update_database_from_excel():
         cursor = conn.cursor()
 
         # Read data from the Excel file
-        data = pd.read_csv("merged_csv.csv")  # Adjust file name if needed
+        data = pd.read_csv("merged_csv-baessaversion-goodstuff.csv")  # Adjust file name if needed
 
         # Truncate the table to remove existing data
         cursor.execute("TRUNCATE TABLE tableone RESTART IDENTITY;")  # Adjust table name

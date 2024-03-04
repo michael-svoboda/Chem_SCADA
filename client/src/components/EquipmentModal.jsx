@@ -12,6 +12,7 @@ const EquipmentModal = ({  isModalOpen, handleCloseModal}) => {
   
   const [streamName, setStreamName] = useState('40% Product Split to Mixer');
   const [property, setProperty] = useState([]);
+  const [property2, setProperty2] = useState([]);
   const [times, setTimes] = useState([]);
   const [range, setRange] = useState(1);
   const [stream, setStream] = useState(1);
@@ -105,11 +106,11 @@ const EquipmentModal = ({  isModalOpen, handleCloseModal}) => {
           <Box style={topHalfStyle}>
             <TopHalfModal />
             <div style={topHalfStyle}>
-              <LineChart property={property} times={times} range={range} stream = {stream} stream2={stream2}/>
+              <LineChart property={property} times={times} range={range} stream = {stream} stream2={stream2} property2={property2}/>
             </div>
           </Box>
           <Box style={bottomHalfStyle}>
-          <BottomHalfModal setProperty={setProperty} setTimes={setTimes} setRange={setRange} range={range} setStream={setStream} stream={stream} setStream2={setStream2} stream2={stream2}/>
+          <BottomHalfModal setProperty={setProperty} setTimes={setTimes} setRange={setRange} range={range} setStream={setStream} stream={stream} setStream2={setStream2} stream2={stream2} property2={property2} setProperty2={setProperty2}/>
           </Box>
         </Box>
       </Fade>

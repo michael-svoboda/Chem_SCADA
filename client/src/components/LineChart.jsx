@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const LineChart = ({ property, times, range, stream, stream2 }) => {
+const LineChart = ({ property, times, range, stream, stream2, property2 }) => {
   const [counter, setCounter] = useState(0);
   const chartRef = useRef(null);
   const myChart = useRef(null);
@@ -11,13 +11,34 @@ const LineChart = ({ property, times, range, stream, stream2 }) => {
       if (chartRef.current && myChart.current) {
         const ctx = chartRef.current.getContext('2d');
 
-        if (myChart.current.data.labels.length > range * 60) {
-          myChart.current.data.labels.shift();
-          myChart.current.data.datasets[0].data.shift();
+        if (counter == 1) {
+
+          myChart.current.data.datasets[0].data = property.slice(0, range * 60);
+          myChart.current.data.datasets[1].data = property2.slice(0, range * 60);
+          myChart.current.data.labels = times.slice(0, range * 60);
+           setCounter(range*60)
         }
 
-        myChart.current.data.labels.push(times[counter]);
-        myChart.current.data.datasets[0].data.push(property[counter]);
+        else {
+          if (myChart.current.data.labels.length > range * 60) {
+            myChart.current.data.labels.shift();
+            myChart.current.data.datasets[0].data.shift();
+            myChart.current.data.datasets[1].data.shift();
+          }
+  
+          myChart.current.data.labels.push(times[counter]);
+          myChart.current.data.datasets[0].data.push(property[counter]);
+          myChart.current.data.datasets[1].data.push(property2[counter]);
+          console.log( myChart.current.data.datasets[1]);
+
+        }
+
+        if (!stream) {
+          myChart.current.data.datasets[0].data = [];
+        }
+        if (!stream2) {
+          myChart.current.data.datasets[1].data = [];
+        }
         myChart.current.update();
       }
     };
@@ -30,7 +51,12 @@ const LineChart = ({ property, times, range, stream, stream2 }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [counter, property, times, range]);
+  }, [counter]);
+
+  useEffect(() => {
+    setCounter(0)
+  },[property,property2,range])
+
 
   useEffect(() => {
     if (chartRef.current) {
@@ -56,14 +82,14 @@ const LineChart = ({ property, times, range, stream, stream2 }) => {
               pointHoverRadius: 6,
             },
             {
-                            label: 'stream:' + stream2.toString(),
-                            data: [],
-                            borderColor: 'rgb(255, 99, 132, 1)',
-                            borderWidth: 1.5,
-                            stepped: true,
-                            pointRadius: 0, // Adjust the size of the circles
-                            pointHoverRadius: 6, // Adjust the size of the circles on hover
-                          },
+              label: 'stream:' + stream2.toString(),
+              data: [],
+              borderColor: 'rgb(255, 99, 132, 1)',
+              borderWidth: 1.5,
+              stepped: true,
+              pointRadius: 0, // Adjust the size of the circles
+              pointHoverRadius: 6, // Adjust the size of the circles on hover
+            },
           ],
         },
         options: {
